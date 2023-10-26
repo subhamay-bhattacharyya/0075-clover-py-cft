@@ -235,9 +235,8 @@ Resources:
               - events:PutTargets
               - events:PutRule
               - events:DescribeRule
-              - events:*
               Resource: 
-              - "arn:aws:events:ap-northeast-1:123456789012:rule/StepFunctionsGetEventsForECSTaskRule"
+              - !Sub 'arn:${AWS::Partition}:events:${AWS::Region}:${AWS::AccountId}:rule/StepFunctionsGetEventsForECSTaskRule'
             - Sid: AllowKMSDecrypt
               Effect: Allow
               Action: 
