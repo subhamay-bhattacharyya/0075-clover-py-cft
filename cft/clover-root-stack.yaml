@@ -286,8 +286,8 @@ Resources:
         GitHubRepository: !Ref GitHubRepository
         CiBuild: !Ref CiBuild
         StackName: !Ref StackName
-        VPCId: !GetAtt CloverVPCStack.Outputs.PrivateSubnet1BId
-        SecurityGroupName: 'scill-sg'
+        VPCId: !GetAtt CloverVPCStack.Outputs.VpcId
+        SecurityGroupName: 'clover-sg'
         SecurityGroupDescription: "SSH Security Group."
       TimeoutInMinutes: 5
   ###################################### IAM Roles and Policies ####################################
@@ -410,10 +410,10 @@ Outputs:
     Value: !GetAtt CloverVPCStack.Outputs.PrivateSubnet1AId
   CloverPrivateSubnet1BId:
     Description: Public Subnet-1B Id
-    Value: !GetAtt CloverVPCStack.Outputs.
+    Value: !GetAtt CloverVPCStack.Outputs.PrivateSubnet1BId
   CloverVpcId:
     Description: Custom Vpc Id
-    Value: !GetAtt CloverVPCStack.Outputs.PrivateSubnet1BId
+    Value: !GetAtt CloverVPCStack.Outputs.VpcId
   CloverCustomResourceLambdaIAMRoleArn:
     Description:  Custom Resource Lambda IAM Role Arn
     Value: !GetAtt CloverVPCStack.Outputs.CustomResourceLambdaIAMRoleArn
